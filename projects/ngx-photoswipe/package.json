@@ -3,6 +3,21 @@
   "version": "1.0.0",
   "author": "Fernando Alves",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fNxONE/ngx-photoswipe.git"
+  },
+  "keywords": [
+    "angular",
+    "PhotoSwipe",
+    "Lightbox",
+    "Ngx PhotoSwipe",
+    "Angular 2+"
+  ],
+  "bugs": {
+    "url": "https://github.com/fNxONE/ngx-photoswipe/issues"
+  },
+  "homepage": "https://github.com/fNxONE/ngx-photoswipe#readme",
   "peerDependencies": {
     "@angular/common": "^8.0.0",
     "@angular/core": "^8.0.0",
