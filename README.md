@@ -22,7 +22,14 @@ npm install --save @fnxone/ngx-photoswipe
             "output": "/assets/media" 
           }
           // to here        
-        ]    
+        ],
+        "styles": [
+            // add this from here
+            "node_modules/photoswipe/dist/photoswipe.css",
+            "node_modules/photoswipe/dist/default-skin/default-skin.css",
+            // to here  
+            "src/content/scss/global.scss"
+        ]  
       }
     }
   }
@@ -31,7 +38,7 @@ npm install --save @fnxone/ngx-photoswipe
 
 ##### Include the NgxPhotoswipeModule.
 ```typescript
-import { NgxPhotoswipeModule } from 'ngx-photoswipe';
+import { NgxPhotoswipeModule } from '@fnxone/ngx-photoswipe';
  
 @NgModule({
   ...
@@ -63,7 +70,7 @@ Add the `ngxps-gallery` in your component html.
 ##### Load images in component
 
 ```typescript
-import {Image} from 'ngx-photoswipe';
+import {Image} from '@fnxone/ngx-photoswipe';
 
 @Component({
   selector: 'app-root',
@@ -94,7 +101,7 @@ export class AppComponent {
 
 ##### Custom Options Adapter
 ```typescript
-import {NgxPhotoswipeModule, LightboxAdapter} from 'ngx-photoswipe';
+import {NgxPhotoswipeModule, LightboxAdapter} from '@fnxone/ngx-photoswipe';
  
 @NgModule({
   imports: [
@@ -112,7 +119,7 @@ export class AppModule {
 
 ```typescript 
 import { Injectable } from '@angular/core';
-import { LightboxAdapter } from 'ngx-photoswipe';
+import { LightboxAdapter } from '@fnxone/ngx-photoswipe';
 
 @Injectable()
 export class CustomLightboxAdapter extends LightboxAdapter {
@@ -142,13 +149,6 @@ This repository contains a demo app. the source is located in: `src/`
 Run `ng serve` to start the dev server for the demo. 
 Navigate to `http://localhost:4200/`. 
 The app will automatically reload if you change any of the source files.
-
-## ngx-photoswipe
-
-The library was created with the angular cli using `ng generate library`.
-
-**!!! The project's name is 'ngx-photoswipe' (with a dash) because an underline
-is not supported.**
 
 ### build library
 
