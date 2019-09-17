@@ -5,7 +5,7 @@
 ```bash
 npm install --save bootstrap
 npm install --save photoswipe
-npm install --save ngx-photoswipe
+npm install --save @fnxone/ngx-photoswipe
 ```
 
 ##### Add assets in your angular.json
