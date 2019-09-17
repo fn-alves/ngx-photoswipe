@@ -1,27 +1,155 @@
-# NgxPhotoswipeApp
+# Photo Swipe for angular 2+
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.0.
+## Installation
+##### Install NPM packages
+```bash
+npm install --save bootstrap
+npm install --save photoswipe
+npm install --save ngx-photoswipe
+```
 
-## Development server
+##### Add assets in your angular.json
+```json
+"projects": {
+  "your-app-name": {
+    "architect": {
+      "build": {
+        "assets": [
+          // add this from here
+          { 
+            "glob": "**/*.@(svg|png|gif)", 
+            "input": "./node_modules/photoswipe/src/css/default-skin", 
+            "output": "/assets/media" 
+          }
+          // to here        
+        ]    
+      }
+    }
+  }
+}
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##### Include the NgxPhotoswipeModule.
+```typescript
+import { NgxPhotoswipeModule } from 'ngx-photoswipe';
+ 
+@NgModule({
+  ...
+  imports: [
+    BrowserModule,
+    NgxPhotoswipeModule
+  ]
+  ...
+})
+export class AppModule {
+  ...
+}
+```
 
-## Code scaffolding
+##### HTML
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Place the `ngxps-lightbox` somewhere in your layout.
 
-## Build
+```html
+<ngxps-lightbox></ngxps-lightbox>
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Add the `ngxps-gallery` in your component html. 
 
-## Running unit tests
+```html
+<ngxps-gallery [images]="images"></ngxps-gallery>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+##### Load images in component
 
-## Running end-to-end tests
+```typescript
+import {Image} from 'ngx-photoswipe';
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'ngx-photoswipe-app';
 
-## Further help
+  images: Image[] = [
+        {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg',
+          thumb: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(117).jpg',
+        },
+        {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg',
+          thumb: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(98).jpg',
+          description: 'Image 2'
+        },
+        {
+          img: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg',
+          thumb: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(131).jpg',
+          description: 'Image 3'
+        }
+    ];
+} 
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+##### Custom Options Adapter
+```typescript
+import {NgxPhotoswipeModule, LightboxAdapter} from 'ngx-photoswipe';
+ 
+@NgModule({
+  imports: [
+    BrowserModule,
+    NgxPhotoswipeModule,
+  ],
+  //Custom LightboxAdapter
+  providers: [
+    {provide : LightboxAdapter, useClass : CustomLightboxAdapter}
+  ]
+})
+export class AppModule {
+}
+```
+
+```typescript 
+import { Injectable } from '@angular/core';
+import { LightboxAdapter } from 'ngx-photoswipe';
+
+@Injectable()
+export class CustomLightboxAdapter extends LightboxAdapter {
+    allowPanToNext = true;
+    spacing = 0.12;
+    bgOpacity = 0.4;
+    mouseUsed = false;
+    loop = true;
+    pinchToClose = true;
+    closeOnScroll = true;
+    closeOnVerticalDrag = true;
+    hideAnimationDuration = 333;
+    showAnimationDuration = 333;
+    showHideOpacity = false;
+    escKey = true;
+    arrowKeys = true;
+    getPageURLForShare = function(shareButtonData) {
+        return window.location.href;
+    };
+}
+```
+
+## Demo
+
+This repository contains a demo app. the source is located in: `src/`
+
+Run `ng serve` to start the dev server for the demo. 
+Navigate to `http://localhost:4200/`. 
+The app will automatically reload if you change any of the source files.
+
+## ngx-photoswipe
+
+The library was created with the angular cli using `ng generate library`.
+
+**!!! The project's name is 'ngx-photoswipe' (with a dash) because an underline
+is not supported.**
+
+### build library
+
+To build the library run `npm run build-lib`.

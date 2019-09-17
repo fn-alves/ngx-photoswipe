@@ -1,0 +1,25 @@
+.ngx-gallery [class*=col-] {
+  padding: .5rem;
+}
+.ngx-gallery.no-margin [class*=col-] {
+  padding: 0;
+}
+.ngx-gallery figure {
+  float: left;
+  margin: 0 !important;
+}
+.ngx-gallery figure .img-fluid {
+  display: inline;
+}
+.ngx-gallery figure img {
+  cursor: zoom-in;
+  border-radius: 0;
+  //transition: opacity .4s;
+}
+.ngx-gallery figure img:hover {
+  opacity: .8;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}

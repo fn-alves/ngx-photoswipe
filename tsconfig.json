@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-photoswipe": [
+        "dist/ngx-photoswipe"
+      ],
+      "ngx-photoswipe/*": [
+        "dist/ngx-photoswipe/*"
+      ]
+    }
   }
 }

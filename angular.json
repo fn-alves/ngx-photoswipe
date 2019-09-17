@@ -10,7 +10,7 @@
       "prefix": "app",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "sass"
+          "style": "scss"
         }
       },
       "architect": {
@@ -24,10 +24,11 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "**/*.@(svg|png|gif)", "input": "./node_modules/photoswipe/src/css/default-skin", "output": "/assets/media" }
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -84,7 +85,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.sass"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -128,6 +129,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-photoswipe": {
+      "root": "projects/ngx-photoswipe",
+      "sourceRoot": "projects/ngx-photoswipe/src",
+      "projectType": "library",
+      "prefix": "ngxps",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-photoswipe/tsconfig.lib.json",
+            "project": "projects/ngx-photoswipe/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-photoswipe/src/test.ts",
+            "tsConfig": "projects/ngx-photoswipe/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-photoswipe/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-photoswipe/tsconfig.lib.json",
+              "projects/ngx-photoswipe/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
