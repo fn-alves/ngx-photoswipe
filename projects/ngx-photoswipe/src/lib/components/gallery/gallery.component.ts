@@ -23,7 +23,8 @@ export class GalleryComponent {
     private adapter: LightboxAdapter
   ) { }
 
-  onClickImage(data) {
+  onClickImage(data: Image, index: number) {
+    data.id = index;
     this.openPhotoSwipe(data);
     return false;
   }
@@ -52,6 +53,6 @@ export class GalleryComponent {
   }
 
   typeIsNoMargin(): boolean {
-    return this.type === 'no-marin';
+    return this.type === 'no-margin';
   }
 }

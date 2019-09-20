@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <div class="ngx-gallery" [ngClass]="{'no-margin': typeIsNoMargin()}">
       <figure class="col-md-2" *ngFor="let image of images; let idx = index">
-        <a [href]="image.img" data-size="4934x3296" (click)="onClickImage(image)">
+        <a [href]="image.img" data-size="4934x3296" (click)="onClickImage(image, idx)">
           <img class="img-fluid" [src]="image.thumb" [alt]="image.description">
         </a>
       </figure>
