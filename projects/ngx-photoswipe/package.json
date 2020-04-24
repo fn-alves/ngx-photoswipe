@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fNxONE/ngx-photoswipe.git"
+    "url": "git+https://github.com/fn-alves/ngx-photoswipe.git"
   },
   "keywords": [
     "angular",
@@ -15,9 +15,9 @@
     "Angular 2+"
   ],
   "bugs": {
-    "url": "https://github.com/fNxONE/ngx-photoswipe/issues"
+    "url": "https://github.com/fn-alves/ngx-photoswipe/issues"
   },
-  "homepage": "https://github.com/fNxONE/ngx-photoswipe#readme",
+  "homepage": "https://github.com/fn-alves/ngx-photoswipe#readme",
   "peerDependencies": {
     "@angular/common": "~8.0.0",
     "@angular/core": "~8.0.0",
