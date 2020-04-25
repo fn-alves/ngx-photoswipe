@@ -2,9 +2,7 @@
   "name": "ngx-photoswipe-app",
   "version": "0.0.1",
   "scripts": {
-    "ng": "ng",
-    "start": "npm run build-lib && ng serve --port 4400",
-    "build": "ng build",
+    "start": "npm run build:lib && ng serve --port 4400",
     "test": "ng test",
     "lint": "ng lint",
     "lint:fix": "npm run lint -- --fix",
