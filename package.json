@@ -7,12 +7,13 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build-lib": "ng build ngx-photoswipe",
-    "copy-files": "cp ./README.md ./dist/ngx-photoswipe && cp ./LICENSE ./dist/ngx-photoswipe",
-    "npm-pack": "cd dist/ngx-photoswipe && npm pack",
-    "npm-publish": "cd dist/ngx-photoswipe && npm publish --access public",
-    "package": "npm run build-lib && npm run copy-files && npm run npm-pack && npm run npm-publish"
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier --parser typescript --write \"./src/**/*.ts\"",
+    "build:lib": "ng build ngx-photoswipe",
+    "copy:files": "cp ./README.md ./dist/ngx-photoswipe && cp ./LICENSE ./dist/ngx-photoswipe",
+    "npm:pack": "cd dist/ngx-photoswipe && npm pack",
+    "npm:publish": "cd dist/ngx-photoswipe && npm publish --access public",
+    "package": "npm run build:lib && npm run copy:files && npm run npm:pack && npm run npm:publish"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +53,8 @@
     "ts-node": "~8.9.0",
     "tslib": "^1.11.1",
     "tslint": "~6.1.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.3.0",
     "typescript": "~3.8.3"
   }
 }
