@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 import * as PhotoSwipe from 'photoswipe/dist/photoswipe';
 import * as PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default.min';
 import {Image} from '../../models/image.model';

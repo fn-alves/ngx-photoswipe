@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterContentInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {NgxPhotoswipeService} from '../../services/ngx-photoswipe.service';
 
 @Component({
