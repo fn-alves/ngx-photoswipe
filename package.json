@@ -1,18 +1,17 @@
 {
   "name": "ngx-photoswipe-app",
-  "version": "0.0.1",
+  "version": "1.0.5",
   "scripts": {
-    "ng": "ng",
-    "start": "npm run build-lib && ng serve --port 4400",
-    "build": "ng build",
+    "start": "npm run build:lib && ng serve --port 4400",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build-lib": "ng build ngx-photoswipe",
-    "copy-files": "cp ./README.md ./dist/ngx-photoswipe && cp ./LICENSE ./dist/ngx-photoswipe",
-    "npm-pack": "cd dist/ngx-photoswipe && npm pack",
-    "npm-publish": "cd dist/ngx-photoswipe && npm publish --access public",
-    "package": "npm run build-lib && npm run copy-files && npm run npm-pack && npm run npm-publish"
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier --parser typescript --write \"./{src,projects/*/src}/**/*.ts\"",
+    "build:lib": "ng build ngx-photoswipe",
+    "copy:files": "cp ./README.md ./dist/ngx-photoswipe && cp ./LICENSE ./dist/ngx-photoswipe",
+    "npm:pack": "cd dist/ngx-photoswipe && npm pack",
+    "npm:publish": "cd dist/ngx-photoswipe && npm publish --access public",
+    "package": "npm run build:lib && npm run copy:files && npm run npm:pack && npm run npm:publish"
   },
   "private": true,
   "dependencies": {
@@ -36,10 +35,11 @@
     "@angular/cli": "~9.1.3",
     "@angular/compiler-cli": "~9.1.3",
     "@angular/language-service": "~9.1.3",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.10",
     "@types/jasminewd2": "~2.0.8",
+    "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
+    "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.1",
     "karma": "~5.0.2",
@@ -47,11 +47,26 @@
     "karma-coverage-istanbul-reporter": "~2.1.1",
     "karma-jasmine": "~3.1.1",
     "karma-jasmine-html-reporter": "^1.5.3",
+    "lint-staged": "^10.1.7",
     "ng-packagr": "^9.0.0",
+    "prettier": "^2.0.5",
     "protractor": "~5.4.4",
     "ts-node": "~8.9.0",
     "tslib": "^1.11.1",
     "tslint": "~6.1.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.3.0",
     "typescript": "~3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint:fix && npm run lint && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run prettier",
+      "git add"
+    ]
   }
 }
