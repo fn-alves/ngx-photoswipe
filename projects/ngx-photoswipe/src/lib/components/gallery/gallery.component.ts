@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import * as PhotoSwipe from 'photoswipe/dist/photoswipe';
-import * as PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default.min';
+import * as PhotoSwipe from 'photoswipe';
+import * as PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
 import { Image } from '../../models/image.model';
 import { NgxPhotoswipeService } from '../../services/ngx-photoswipe.service';
 import { LightboxAdapter } from '../../adpters/lightbox-adapter';
@@ -12,9 +12,8 @@ import { LightboxAdapter } from '../../adpters/lightbox-adapter';
 })
 export class GalleryComponent {
     // @ts-ignore
-    @ViewChild('ngxpsGallery', { static: true }) galleryElement: ElementRef<
-        HTMLDivElement
-    >;
+    @ViewChild('ngxpsGallery', { static: true })
+    galleryElement: ElementRef<HTMLDivElement>;
     @Input() images: Image[];
     @Input() type = 'margin';
 
