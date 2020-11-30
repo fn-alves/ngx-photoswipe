@@ -17,7 +17,7 @@ export class GalleryComponent {
     @Input() images: Image[];
     @Input() type = 'margin';
 
-    pswp: PhotoSwipe;
+    pswp: PhotoSwipe<any>;
 
     constructor(
         private ngxPhotoswipeService: NgxPhotoswipeService,
@@ -35,8 +35,8 @@ export class GalleryComponent {
     }
 
     private openPhotoSwipe(image: Image): boolean {
-        this.adapter.galleryUID = this.galleryElement.nativeElement.getAttribute(
-            'data-pswp-uid'
+        this.adapter.galleryUID = Number(
+            this.galleryElement.nativeElement.getAttribute('data-pswp-uid')
         );
         this.adapter.index = image.id;
 

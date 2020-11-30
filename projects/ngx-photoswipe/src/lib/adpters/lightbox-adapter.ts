@@ -2,14 +2,18 @@
 import { Injectable } from '@angular/core';
 import { LightboxMethods, LightboxOptions } from './lightbox-options';
 
-export const NGX_PHOTO_SWIPE_FACTORY = () => new DefaultLightboxAdapter();
-@Injectable({ providedIn: 'root', useFactory: NGX_PHOTO_SWIPE_FACTORY })
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+export function ngxPhotoSwipeFactory() {
+    return new DefaultLightboxAdapter();
+}
+
+@Injectable({ providedIn: 'root', useFactory: ngxPhotoSwipeFactory })
 export abstract class LightboxAdapter
-    implements LightboxOptions, LightboxMethods {
-    getThumbBoundsFn: Function;
-    getDoubleTapZoom: Function;
-    isClickableElement: Function;
-    addCaptionHTMLFn: Function;
+    implements LightboxMethods, PhotoSwipe.Options {
+    getThumbBoundsFn: (index: number) => { x: number; y: number; w: number };
+    getDoubleTapZoom: (isMouseClick: boolean, item: PhotoSwipe.Item) => number;
+    isClickableElement: (el: HTMLElement) => boolean;
+    addCaptionHTMLFn: () => boolean;
 
     index: number;
     showHideOpacity: boolean;
@@ -27,10 +31,9 @@ export abstract class LightboxAdapter
     escKey: boolean;
     arrowKeys: boolean;
     history: boolean;
-    galleryUID: string;
+    galleryUID: number;
     galleryPIDs: boolean;
     errorMsg: string;
-    barsSize: Object;
     timeToIdle: number;
     timeToIdleOutside: number;
     loadingIndicatorDelay: number;

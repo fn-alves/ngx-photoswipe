@@ -155,10 +155,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "allowedCommonJsDependencies": [
-              "photoswipe/dist/photoswipe",
-              "photoswipe/dist/photoswipe-ui-default.min"
-            ],
             "tsConfig": "projects/ngx-photoswipe/tsconfig.lib.json",
             "project": "projects/ngx-photoswipe/ng-package.json"
           },
