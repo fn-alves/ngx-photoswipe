@@ -1,4 +1,4 @@
-// tslint:disable:ban-types
+/* eslint-disable @typescript-eslint/ban-types */
 export interface LightboxOptions {
     index: number;
     showHideOpacity: boolean;

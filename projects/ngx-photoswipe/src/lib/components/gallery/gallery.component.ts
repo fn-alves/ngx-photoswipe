@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import * as PhotoSwipe from 'photoswipe/dist/photoswipe';
-import * as PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default.min';
+import * as PhotoSwipe from 'photoswipe';
+import * as PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
 import { Image } from '../../models/image.model';
 import { NgxPhotoswipeService } from '../../services/ngx-photoswipe.service';
 import { LightboxAdapter } from '../../adpters/lightbox-adapter';
@@ -12,13 +12,12 @@ import { LightboxAdapter } from '../../adpters/lightbox-adapter';
 })
 export class GalleryComponent {
     // @ts-ignore
-    @ViewChild('ngxpsGallery', { static: true }) galleryElement: ElementRef<
-        HTMLDivElement
-    >;
+    @ViewChild('ngxpsGallery', { static: true })
+    galleryElement: ElementRef<HTMLDivElement>;
     @Input() images: Image[];
     @Input() type = 'margin';
 
-    pswp: PhotoSwipe;
+    pswp: PhotoSwipe<any>;
 
     constructor(
         private ngxPhotoswipeService: NgxPhotoswipeService,
@@ -31,13 +30,17 @@ export class GalleryComponent {
         return false;
     }
 
+    typeIsNoMargin(): boolean {
+        return this.type === 'no-margin';
+    }
+
     private openPhotoSwipe(image: Image): boolean {
-        this.adapter.galleryUID = this.galleryElement.nativeElement.getAttribute(
-            'data-pswp-uid'
+        this.adapter.galleryUID = Number(
+            this.galleryElement.nativeElement.getAttribute('data-pswp-uid')
         );
         this.adapter.index = image.id;
 
-        const PSWP: HTMLElement = this.ngxPhotoswipeService.LightboxElement
+        const PSWP: HTMLElement = this.ngxPhotoswipeService.lightboxElement
             .nativeElement as HTMLElement;
         this.pswp = new PhotoSwipe(
             PSWP,
@@ -51,18 +54,12 @@ export class GalleryComponent {
     }
 
     private getImagesAsPhotoSwipe(): any[] {
-        return this.images.map((image) => {
-            return {
-                src: image.img,
-                w: image.width != null ? image.width : 4934,
-                h: image.height != null ? image.height : 3296,
-                pid: image.id,
-                title: image.description,
-            };
-        });
-    }
-
-    typeIsNoMargin(): boolean {
-        return this.type === 'no-margin';
+        return this.images.map((image) => ({
+            src: image.img,
+            w: image.width != null ? image.width : 4934,
+            h: image.height != null ? image.height : 3296,
+            pid: image.id,
+            title: image.description,
+        }));
     }
 }

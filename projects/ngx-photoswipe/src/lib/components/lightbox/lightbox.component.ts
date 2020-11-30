@@ -18,6 +18,6 @@ export class LightboxComponent implements AfterContentInit {
     constructor(private ngxPhotoswipeService: NgxPhotoswipeService) {}
 
     ngAfterContentInit() {
-        this.ngxPhotoswipeService.LightboxElement = this.el;
+        this.ngxPhotoswipeService.lightboxElement = this.el;
     }
 }

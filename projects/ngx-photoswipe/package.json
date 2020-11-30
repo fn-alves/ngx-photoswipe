@@ -1,6 +1,6 @@
 {
   "name": "@fnxone/ngx-photoswipe",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Fernando Alves",
   "license": "MIT",
   "repository": {
@@ -18,9 +18,12 @@
     "url": "https://github.com/fn-alves/ngx-photoswipe/issues"
   },
   "homepage": "https://github.com/fn-alves/ngx-photoswipe#readme",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
-    "@angular/common": ">=8.0.0 ",
-    "@angular/core": ">=8.0.0",
+    "@angular/common": ">=9.0.0 ",
+    "@angular/core": ">=9.0.0",
     "photoswipe": "^4.1.3",
     "bootstrap": "^4.3.1"
   }
