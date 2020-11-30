@@ -4,5 +4,5 @@ import { ElementRef, Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class NgxPhotoswipeService {
-    LightboxElement: ElementRef;
+    lightboxElement: ElementRef;
 }

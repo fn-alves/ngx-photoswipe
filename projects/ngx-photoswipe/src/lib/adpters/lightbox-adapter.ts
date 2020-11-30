@@ -1,11 +1,8 @@
-// tslint:disable:ban-types
+/* eslint-disable @typescript-eslint/ban-types */
 import { Injectable } from '@angular/core';
 import { LightboxMethods, LightboxOptions } from './lightbox-options';
 
-export function NGX_PHOTO_SWIPE_FACTORY() {
-    return new DefaultLightboxAdapter();
-}
-
+export const NGX_PHOTO_SWIPE_FACTORY = () => new DefaultLightboxAdapter();
 @Injectable({ providedIn: 'root', useFactory: NGX_PHOTO_SWIPE_FACTORY })
 export abstract class LightboxAdapter
     implements LightboxOptions, LightboxMethods {

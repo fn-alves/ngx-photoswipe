@@ -30,13 +30,17 @@ export class GalleryComponent {
         return false;
     }
 
+    typeIsNoMargin(): boolean {
+        return this.type === 'no-margin';
+    }
+
     private openPhotoSwipe(image: Image): boolean {
         this.adapter.galleryUID = this.galleryElement.nativeElement.getAttribute(
             'data-pswp-uid'
         );
         this.adapter.index = image.id;
 
-        const PSWP: HTMLElement = this.ngxPhotoswipeService.LightboxElement
+        const PSWP: HTMLElement = this.ngxPhotoswipeService.lightboxElement
             .nativeElement as HTMLElement;
         this.pswp = new PhotoSwipe(
             PSWP,
@@ -50,18 +54,12 @@ export class GalleryComponent {
     }
 
     private getImagesAsPhotoSwipe(): any[] {
-        return this.images.map((image) => {
-            return {
-                src: image.img,
-                w: image.width != null ? image.width : 4934,
-                h: image.height != null ? image.height : 3296,
-                pid: image.id,
-                title: image.description,
-            };
-        });
-    }
-
-    typeIsNoMargin(): boolean {
-        return this.type === 'no-margin';
+        return this.images.map((image) => ({
+            src: image.img,
+            w: image.width != null ? image.width : 4934,
+            h: image.height != null ? image.height : 3296,
+            pid: image.id,
+            title: image.description,
+        }));
     }
 }
