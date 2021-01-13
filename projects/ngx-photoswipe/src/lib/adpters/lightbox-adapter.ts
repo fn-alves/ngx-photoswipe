@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { Injectable } from '@angular/core';
-import { LightboxMethods, LightboxOptions } from './lightbox-options';
+import { LightboxMethods } from './lightbox-options';
+import * as PhotoSwipe from 'photoswipe';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function ngxPhotoSwipeFactory() {
