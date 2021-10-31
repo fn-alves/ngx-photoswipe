@@ -20,8 +20,8 @@ export class GalleryComponent {
     pswp: PhotoSwipe<any>;
 
     constructor(
-        private ngxPhotoswipeService: NgxPhotoswipeService,
-        private adapter: LightboxAdapter
+        protected ngxPhotoswipeService: NgxPhotoswipeService,
+        protected adapter: LightboxAdapter
     ) {}
 
     onClickImage(data: Image, index: number) {
