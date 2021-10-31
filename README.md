@@ -1,11 +1,28 @@
 # Photo Swipe for angular 2+
 
+## Examples
+
+##### With margin
+** Margin is default type
+```html
+<ngxps-gallery [images]="images"></ngxps-gallery>
+```
+![Photo Gallery with margin](./examples/margin.png)
+
+
+##### With no-margin
+```html
+<ngxps-gallery [images]="images" type="no-margin"></ngxps-gallery>
+```
+![Photo Gallery with no margin](./examples/no-margin.png)
+
+
+
 ## Installation
 ##### Install NPM packages
 ```bash
-npm install --save bootstrap
-npm install --save photoswipe
-npm install --save @fnxone/ngx-photoswipe
+npm install --save bootstrap photoswipe
+npm install --save @fnxone/ngx-photoswipe @types/photoswipe
 ```
 
 ##### Add assets in your angular.json
@@ -55,13 +72,13 @@ export class AppModule {
 
 ##### HTML
 
-Place the `ngxps-lightbox` somewhere in your layout.
+Place the `ngxps-lightbox` somewhere in your layout. Ex. `app.component.html`.
 
 ```html
 <ngxps-lightbox></ngxps-lightbox>
 ```
 
-Add the `ngxps-gallery` in your component html. 
+Add the `ngxps-gallery` in your component html. Ex. `my-comp-view-image.html`.
 
 ```html
 <ngxps-gallery [images]="images"></ngxps-gallery>
