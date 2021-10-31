@@ -34,7 +34,7 @@ export class GalleryComponent {
         return this.type === 'no-margin';
     }
 
-    private openPhotoSwipe(image: Image): boolean {
+    protected openPhotoSwipe(image: Image): boolean {
         this.adapter.galleryUID = Number(
             this.galleryElement.nativeElement.getAttribute('data-pswp-uid')
         );
@@ -53,7 +53,7 @@ export class GalleryComponent {
         return false;
     }
 
-    private getImagesAsPhotoSwipe(): any[] {
+    protected getImagesAsPhotoSwipe(): any[] {
         return this.images.map((image) => ({
             src: image.img,
             w: image.width != null ? image.width : 4934,
