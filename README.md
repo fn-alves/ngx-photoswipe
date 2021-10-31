@@ -1,5 +1,11 @@
 # Photo Swipe for angular 2+
 
+[![Npm package version](https://img.shields.io/badge/npm-1.0.9-blue)](https://www.npmjs.com/package/@fnxone/ngx-photoswipe)
+[![Npm package yearly downloads](https://img.shields.io/badge/downloads-600%2Fyear-green)](https://www.npmjs.com/package/@fnxone/ngx-photoswipe)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/fn-alves/ngx-photoswipe/graphs/commit-activity)
+
+
+
 ## Examples
 
 ##### With margin
