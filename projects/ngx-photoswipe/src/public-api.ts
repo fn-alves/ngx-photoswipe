@@ -3,5 +3,5 @@
  */
 
 export { LightboxAdapter } from './lib/adpters/lightbox-adapter';
-export * from './lib/ngx-photoswipe.module';
-export * from './lib/models/image.model';
+export { NgxPhotoswipeModule } from './lib/ngx-photoswipe.module';
+export { Image } from './lib/models/image.model';
