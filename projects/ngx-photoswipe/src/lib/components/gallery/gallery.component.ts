@@ -4,6 +4,7 @@ import * as PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
 import { Image } from '../../models/image.model';
 import { NgxPhotoswipeService } from '../../services/ngx-photoswipe.service';
 import { LightboxAdapter } from '../../adpters/lightbox-adapter';
+import { GridGap } from '../../models/grid-gap.enum';
 
 @Component({
     selector: 'ngxps-gallery',
@@ -11,11 +12,9 @@ import { LightboxAdapter } from '../../adpters/lightbox-adapter';
     styleUrls: ['./gallery.component.scss'],
 })
 export class GalleryComponent {
-    // @ts-ignore
-    @ViewChild('ngxpsGallery', { static: true })
-    galleryElement: ElementRef<HTMLDivElement>;
+    @ViewChild('ngxpsGallery', { static: true }) galleryElement: ElementRef<HTMLDivElement>;
     @Input() images: Image[];
-    @Input() type = 'margin';
+    @Input() gridGap: GridGap = GridGap.GAP1;
 
     pswp: PhotoSwipe<any>;
 
@@ -28,10 +27,6 @@ export class GalleryComponent {
         data.id = index;
         this.openPhotoSwipe(data);
         return false;
-    }
-
-    typeIsNoMargin(): boolean {
-        return this.type === 'no-margin';
     }
 
     protected openPhotoSwipe(image: Image): boolean {
