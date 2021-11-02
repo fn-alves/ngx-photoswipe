@@ -1,6 +1,6 @@
 {
   "name": "ngx-photoswipe-app",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "scripts": {
     "start": "npm run build:lib && npm run serve",
     "dev": "npm run build:lib -- --watch && npm run serve",
